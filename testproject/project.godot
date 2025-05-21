@@ -14,3 +14,11 @@ config/name="TestProject"
 run/main_scene="uid://bh4t8i1q02ydl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://GameManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
