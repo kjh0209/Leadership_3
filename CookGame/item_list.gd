@@ -31,7 +31,7 @@ func _ready() -> void:
 
 	#add_item("빵")
 	#add_item("팥")
-	gm.itemGet("우유", 3)
+	gm.itemGet("우유", 7)
 	gm.itemGet("빵", 1)
 	gm.itemGet("팥", 3)
 
@@ -56,17 +56,25 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	
 	
 	var data = {}
-	var item = get_item_text(get_selected_items()[0])
+	var item = gm.getNum(get_item_text(get_selected_items()[0]))
+	print("item : " + str(item))
 	data['item'] = item
-	data['texture'] = tex
+	data['location'] = 'inventory'
+	#data['texture'] = tex
 	
 	return data
 	
+#func _can_drop_data(at_position: Vector2, data: Variant) -> bool: 
+	#return "item" in data and "location" in data
+	#
+#func _drop_data(at_position: Vector2, data: Variant) -> void:
+	#print(data)
+	#if (data["location"] != "inventory") : gm.itemGet(data["item"], 1)
+	#
 func _invenUpdate():
 	clear()
 	var i = 0
 	for count in gm.inventory:
-		while(count):
-			count -= 1 
+		if (count > 0) :
 			add_item(gm.nameList[i])
 		i+=1
