@@ -16,6 +16,7 @@ func _cookButton_pressed() -> void:
 	if ((num1 == num2 && gm.inventory[num1] < 2) || (gm.inventory[num1] < 1) || (gm.inventory[num2] < 1)) :
 		print('aaa')
 		return 
+		
 	if gm.inventory[num1] >= 1 and gm.inventory[num2]>=1:
 			
 		var result = gm.cookRecipe(num1, num2)

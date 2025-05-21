@@ -5,6 +5,7 @@ signal inventoryUpdate
 var data = {}
 var nameList = []
 var inventory = []
+var gold = 0
 
 
 
