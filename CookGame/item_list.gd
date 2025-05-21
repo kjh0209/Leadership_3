@@ -31,6 +31,7 @@ func _ready() -> void:
 
 	#add_item("빵")
 	#add_item("팥")
+	gm.itemGet("우유", 3)
 	gm.itemGet("빵", 1)
 	gm.itemGet("팥", 3)
 
@@ -65,8 +66,7 @@ func _invenUpdate():
 	clear()
 	var i = 0
 	for count in gm.inventory:
-		if count > 0:
+		while(count):
+			count -= 1 
 			add_item(gm.nameList[i])
 		i+=1
-	
-	

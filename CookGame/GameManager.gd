@@ -7,6 +7,7 @@ var nameList = []
 var inventory = []
 
 
+
 func _ready():
 	var file = FileAccess.open("res://data.json", FileAccess.READ)
 	var json_string = file.get_as_text()
