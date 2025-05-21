@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="TestProject"
+config/name="CookGame"
 run/main_scene="uid://bh4t8i1q02ydl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
