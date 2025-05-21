@@ -8,6 +8,7 @@ var inventory = []
 var gold = 0
 
 
+
 func _ready():
 	var file = FileAccess.open("res://data.json", FileAccess.READ)
 	var json_string = file.get_as_text()
