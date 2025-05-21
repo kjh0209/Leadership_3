@@ -138,12 +138,6 @@ fixed_icon_size = Vector2i(128, 170)
 script = ExtResource("4_0hol4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/UI1"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "akdjglaskdsdafadsfasdfasdfsadfsdafsadfsdfsdfasfsdfsaf"
-
 [node name="UI2" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3

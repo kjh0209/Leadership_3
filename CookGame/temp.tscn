@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5obqi37v1qvj"]
+[gd_scene load_steps=6 format=3 uid="uid://5obqi37v1qvj"]
 
-[ext_resource type="Texture2D" uid="uid://rgiqha68di37" path="res://Textures/Images/UI구성.png" id="1_pippe"]
+[ext_resource type="Texture2D" uid="uid://b5co6356t6t7k" path="res://Textures/Images/UI구성.png" id="1_pippe"]
 [ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="2_ufh25"]
 [ext_resource type="Theme" uid="uid://3bbwdjn4jmgq" path="res://Textures/Theme/ItemListTest.tres" id="3_k81e3"]
-[ext_resource type="Texture2D" uid="uid://d1hjoiopo665p" path="res://Textures/foods.png" id="4_f68d1"]
+[ext_resource type="Texture2D" path="res://Textures/foods.png" id="4_f68d1"]
+[ext_resource type="Texture2D" uid="uid://dphaestvhd406" path="res://Textures/pixelfoods/cheese_gouda.png" id="5_h2clf"]
 
 [node name="temp" type="Node2D"]
 
@@ -36,7 +37,15 @@ item_count = 1
 item_0/text = "빵"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(72, -45)
+texture_filter = 1
+position = Vector2(79, -53)
+scale = Vector2(3.33333, 3.33333)
 texture = ExtResource("4_f68d1")
 region_enabled = true
 region_rect = Rect2(0, 0, 24, 24)
+
+[node name="CheeseGouda" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(434.375, 423.375)
+scale = Vector2(6.95313, 6.95313)
+texture = ExtResource("5_h2clf")
