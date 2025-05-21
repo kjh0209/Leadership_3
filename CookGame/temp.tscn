@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://5obqi37v1qvj"]
+
+[ext_resource type="Texture2D" uid="uid://rgiqha68di37" path="res://Textures/Images/UI구성.png" id="1_pippe"]
+[ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="2_ufh25"]
+[ext_resource type="Theme" uid="uid://3bbwdjn4jmgq" path="res://Textures/Theme/ItemListTest.tres" id="3_k81e3"]
+
+[node name="temp" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_pippe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.643137, 0.54902, 0.4, 1)
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 272.0
+offset_top = -205.0
+offset_right = 472.0
+offset_bottom = -68.0
+theme = ExtResource("2_ufh25")
+item_count = 1
+item_0/text = "빵"
+
+[node name="ItemList2" type="ItemList" parent="."]
+offset_left = 562.0
+offset_top = -249.0
+offset_right = 762.0
+offset_bottom = -112.0
+theme = ExtResource("3_k81e3")
+item_count = 1
+item_0/text = "빵"

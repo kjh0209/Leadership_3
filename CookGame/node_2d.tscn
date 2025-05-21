@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://bh4t8i1q02ydl"]
+
+[ext_resource type="Texture2D" uid="uid://v6p627ik6kk2" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Theme" uid="uid://bqsey8ovq1oe8" path="res://Textures/Theme/Button.tres" id="2_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://b58pbdylslbck" path="res://Textures/Theme/BG3.png" id="2_ir8iy"]
+[ext_resource type="Script" uid="uid://d2mm50bexr40m" path="res://cook.gd" id="2_kdubu"]
+[ext_resource type="FontFile" uid="uid://dhlq570ffpyfq" path="res://Fonts/neodgm.ttf" id="3_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://8x7jy1io6v5e" path="res://Textures/빵.png" id="3_kdubu"]
+[ext_resource type="Script" uid="uid://do2dblpuqjh6c" path="res://ingredient_1.gd" id="3_q6r6c"]
+[ext_resource type="Script" uid="uid://bgbjofnb3vrmy" path="res://item_list.gd" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://b54ngqj7dc1fj" path="res://Textures/Theme/BG2.png" id="4_hqns4"]
+[ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="5_kdubu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0ka3"]
+texture = ExtResource("4_hqns4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(91, 84)
+texture = ExtResource("1_wtcfe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI1" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="background" type="ColorRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.964706, 0.92549, 0.827451, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111111
+anchor_top = 0.117284
+anchor_right = 0.581597
+anchor_bottom = 0.464506
+texture = ExtResource("2_ir8iy")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="cookButton" type="Button" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277778
+anchor_top = 0.554012
+anchor_right = 0.409722
+anchor_bottom = 0.672839
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_4d7sh")
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x0ka3")
+text = "요리하기"
+script = ExtResource("2_kdubu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ingredient1" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.151042
+anchor_top = 0.171296
+anchor_right = 0.27691
+anchor_bottom = 0.384259
+grow_vertical = 2
+texture = ExtResource("3_kdubu")
+expand_mode = 1
+script = ExtResource("3_q6r6c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ingredient2" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.377604
+anchor_top = 0.177469
+anchor_right = 0.503472
+anchor_bottom = 0.390432
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kdubu")
+expand_mode = 1
+script = ExtResource("3_q6r6c")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/UI1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.654514
+anchor_top = 0.05
+anchor_right = 0.984375
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_kdubu")
+max_columns = 11
+fixed_icon_size = Vector2i(128, 170)
+script = ExtResource("4_0hol4")
+metadata/_edit_use_anchors_ = true
+
+[node name="UI2" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CanvasLayer/UI1/cookButton" to="CanvasLayer/UI1/cookButton" method="_cookButton_pressed"]
