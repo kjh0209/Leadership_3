@@ -1,0 +1,734 @@
+[gd_scene load_steps=17 format=3 uid="uid://bh4t8i1q02ydl"]
+
+[ext_resource type="Texture2D" uid="uid://dapxbfh7a5785" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Theme" uid="uid://bqsey8ovq1oe8" path="res://Textures/Theme/Button.tres" id="2_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://dfswgi08l56j4" path="res://Textures/Theme/BG3.png" id="2_ir8iy"]
+[ext_resource type="Script" uid="uid://d2mm50bexr40m" path="res://cook.gd" id="2_kdubu"]
+[ext_resource type="FontFile" uid="uid://ba4bcok7k4qnk" path="res://Fonts/neodgm.ttf" id="3_ir8iy"]
+[ext_resource type="Script" uid="uid://do2dblpuqjh6c" path="res://ingredient_1.gd" id="3_q6r6c"]
+[ext_resource type="Script" uid="uid://bgbjofnb3vrmy" path="res://item_list.gd" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://c43k3p4amlvch" path="res://Textures/Theme/BG2.png" id="4_hqns4"]
+[ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://cl16ros0a6fby" path="res://Textures/Theme/EmptyBG (2).png" id="7_ir8iy"]
+[ext_resource type="Script" uid="uid://dia4ok4mwqcq6" path="res://gold.gd" id="11_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://b75dhht4skukd" path="res://Textures/coin.png" id="12_d2bti"]
+[ext_resource type="Theme" uid="uid://dsxjnh231ty3a" path="res://Textures/Theme/buybutton.tres" id="13_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://cvdyavqn6dkle" path="res://Textures/RecipeBook.png" id="14_flf07"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0ka3"]
+texture = ExtResource("4_hqns4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="Theme" id="Theme_k73cj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(91, 84)
+texture = ExtResource("1_wtcfe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI1" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="background" type="ColorRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.964706, 0.92549, 0.827451, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.62
+anchor_bottom = 0.55
+texture = ExtResource("2_ir8iy")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="cookButton" type="Button" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.242188
+anchor_top = 0.594136
+anchor_right = 0.585938
+anchor_bottom = 0.692901
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_4d7sh")
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x0ka3")
+text = "요리하기"
+script = ExtResource("2_kdubu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ingredient1" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.242188
+anchor_top = 0.256173
+anchor_right = 0.372396
+anchor_bottom = 0.487654
+offset_top = 1.52588e-05
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ir8iy")
+expand_mode = 1
+script = ExtResource("3_q6r6c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ingredient2" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.447917
+anchor_top = 0.256173
+anchor_right = 0.581597
+anchor_bottom = 0.488
+offset_right = -4.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ir8iy")
+expand_mode = 1
+script = ExtResource("3_q6r6c")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/UI1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/UI1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.654514
+anchor_top = 0.05
+anchor_right = 0.984375
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_kdubu")
+max_columns = 11
+fixed_icon_size = Vector2i(128, 170)
+script = ExtResource("4_0hol4")
+metadata/_edit_use_anchors_ = true
+
+[node name="UI2" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI3" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="NinePatchRect" parent="CanvasLayer/UI3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k73cj")
+texture = ExtResource("4_hqns4")
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="goldbar" type="NinePatchRect" parent="CanvasLayer/UI3/background"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = -290.0
+offset_right = 1078.0
+offset_bottom = -229.0
+grow_vertical = 2
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Gold" type="Label" parent="CanvasLayer/UI3/background/goldbar"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 14.0
+offset_right = 100.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 30
+text = "Gold"
+
+[node name="viewGold" type="Label" parent="CanvasLayer/UI3/background/goldbar"]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 14.0
+offset_right = 807.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 30
+text = "Gold"
+script = ExtResource("11_nr8wp")
+
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/background/goldbar"]
+layout_mode = 0
+offset_left = 692.0
+offset_top = 19.0
+offset_right = 718.0
+offset_bottom = 45.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="layout" type="NinePatchRect" parent="CanvasLayer/UI3"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 115.0
+offset_right = 1080.0
+offset_bottom = 597.0
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="todaysIngredient" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 25.0
+offset_right = 711.0
+offset_bottom = 452.0
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="buytIButton" type="Button" parent="CanvasLayer/UI3/layout/todaysIngredient"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = 149.5
+offset_right = 87.5
+offset_bottom = 189.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="tI_text" type="Label" parent="CanvasLayer/UI3/layout/todaysIngredient"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 24.0
+offset_right = 181.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.853816, 0.669408, 0.349891, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 30
+text = "Today's
+Ingredient"
+
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/todaysIngredient"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 302.0
+offset_right = 144.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "1000"
+
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/todaysIngredient"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 297.0
+offset_right = 94.0
+offset_bottom = 323.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="buyGold" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 27.0
+offset_right = 233.0
+offset_bottom = 458.0
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="buy1000GoldButton" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.5
+offset_top = -175.5
+offset_right = 81.5
+offset_bottom = -133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="buy3000GoldButton2" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.5
+offset_top = -79.5
+offset_right = 81.5
+offset_bottom = -37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="buy5000GoldButton3" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.5
+offset_top = 25.5
+offset_right = 79.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="buy10000GoldButton4" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.5
+offset_top = 131.5
+offset_right = 78.5
+offset_bottom = 173.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 49.0
+offset_right = 91.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "1000"
+
+[node name="5Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/1000"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 66.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 16
+text = "$5"
+
+[node name="3000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 141.0
+offset_right = 96.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "3000"
+
+[node name="12Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/3000"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 58.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 16
+text = "$12"
+
+[node name="5000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 246.0
+offset_right = 99.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "5000"
+
+[node name="20Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/5000"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 59.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 16
+text = "$20"
+
+[node name="10000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 356.0
+offset_right = 108.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "10000"
+
+[node name="35Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/10000"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 66.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 16
+text = "$35"
+
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 44.0
+offset_right = 41.0
+offset_bottom = 70.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="coinImage2" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 138.0
+offset_right = 45.0
+offset_bottom = 164.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="coinImage3" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 350.0
+offset_right = 47.0
+offset_bottom = 376.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="coinImage4" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 244.0
+offset_right = 46.0
+offset_bottom = 270.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="buyRecipebook" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 24.0
+offset_right = 957.0
+offset_bottom = 448.0
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="bRb_text" type="Label" parent="CanvasLayer/UI3/layout/buyRecipebook"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 25.0
+offset_right = 179.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.853816, 0.669408, 0.349891, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 30
+text = "Random
+RecipeBook"
+
+[node name="buyRandomRBButton" type="Button" parent="CanvasLayer/UI3/layout/buyRecipebook"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = 149.0
+offset_right = 87.5
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="RecipeBookImage" type="NinePatchRect" parent="CanvasLayer/UI3/layout/buyRecipebook"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 142.0
+offset_right = 158.0
+offset_bottom = 262.0
+texture = ExtResource("14_flf07")
+
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyRecipebook"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 302.0
+offset_right = 143.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "1000"
+
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyRecipebook"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 297.0
+offset_right = 93.0
+offset_bottom = 323.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="buyCardpack" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 24.0
+offset_right = 463.0
+offset_bottom = 455.0
+texture = ExtResource("4_hqns4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="buyNormalCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.5
+offset_top = -101.5
+offset_right = 89.5
+offset_bottom = -59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="buyRareCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.5
+offset_top = -5.5
+offset_right = 89.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="buySpecialCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.5
+offset_top = 99.5
+offset_right = 87.5
+offset_bottom = 141.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ta5nu")
+text = "Buy"
+
+[node name="CP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 39.0
+offset_right = 179.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.853816, 0.669408, 0.349891, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 30
+text = "Card Packs"
+
+[node name="500" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 162.0
+offset_right = 117.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "500"
+
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 157.0
+offset_right = 67.0
+offset_bottom = 183.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 263.0
+offset_right = 121.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "1000"
+
+[node name="coinImage2" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 258.0
+offset_right = 71.0
+offset_bottom = 284.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="2000" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 366.0
+offset_right = 124.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "2000"
+
+[node name="coinImage3" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 361.0
+offset_right = 74.0
+offset_bottom = 387.0
+texture = ExtResource("12_d2bti")
+expand_mode = 1
+
+[node name="NCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 112.0
+offset_right = 144.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_shadow_color = Color(0.853816, 0.669408, 0.349891, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "Normal
+Card Packs"
+horizontal_alignment = 1
+
+[node name="RCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 211.0
+offset_right = 142.0
+offset_bottom = 276.0
+theme_override_colors/font_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_shadow_color = Color(0.280629, 0.781025, 0.843006, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "Rare
+Card Packs"
+horizontal_alignment = 1
+
+[node name="SCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 315.0
+offset_right = 144.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_shadow_color = Color(0.926427, 0.538163, 0.904299, 1)
+theme_override_fonts/font = ExtResource("3_ir8iy")
+theme_override_font_sizes/font_size = 20
+text = "Special
+Card Packs"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/UI1/cookButton" to="CanvasLayer/UI1/cookButton" method="_cookButton_pressed"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://5obqi37v1qvj"]
+
+[ext_resource type="Texture2D" uid="uid://b5co6356t6t7k" path="res://Textures/Images/UI구성.png" id="1_pippe"]
+[ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="2_ufh25"]
+[ext_resource type="Theme" uid="uid://3bbwdjn4jmgq" path="res://Textures/Theme/ItemListTest.tres" id="3_k81e3"]
+[ext_resource type="Texture2D" path="res://Textures/foods.png" id="4_f68d1"]
+[ext_resource type="Texture2D" uid="uid://dphaestvhd406" path="res://Textures/pixelfoods/cheese_gouda.png" id="5_h2clf"]
+
+[node name="temp" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_pippe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.921569, 0.858824, 0.721569, 1)
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 272.0
+offset_top = -205.0
+offset_right = 472.0
+offset_bottom = -68.0
+theme = ExtResource("2_ufh25")
+item_count = 1
+item_0/text = "빵"
+
+[node name="ItemList2" type="ItemList" parent="."]
+offset_left = 562.0
+offset_top = -249.0
+offset_right = 762.0
+offset_bottom = -112.0
+theme = ExtResource("3_k81e3")
+item_count = 1
+item_0/text = "빵"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(79, -53)
+scale = Vector2(3.33333, 3.33333)
+texture = ExtResource("4_f68d1")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 24)
+
+[node name="CheeseGouda" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(434.375, 423.375)
+scale = Vector2(6.95313, 6.95313)
+texture = ExtResource("5_h2clf")
