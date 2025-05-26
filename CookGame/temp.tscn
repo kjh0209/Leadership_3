@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://5obqi37v1qvj"]
+[gd_scene load_steps=10 format=3 uid="uid://5obqi37v1qvj"]
 
 [ext_resource type="Texture2D" uid="uid://b5co6356t6t7k" path="res://Textures/Images/UI구성.png" id="1_pippe"]
 [ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="2_ufh25"]
 [ext_resource type="Theme" uid="uid://3bbwdjn4jmgq" path="res://Textures/Theme/ItemListTest.tres" id="3_k81e3"]
-[ext_resource type="Texture2D" path="res://Textures/foods.png" id="4_f68d1"]
-[ext_resource type="Texture2D" uid="uid://dphaestvhd406" path="res://Textures/pixelfoods/cheese_gouda.png" id="5_h2clf"]
+[ext_resource type="Texture2D" uid="uid://b75hto6ytddx0" path="res://Textures/tempTexture/foods.png" id="4_f68d1"]
+[ext_resource type="Texture2D" uid="uid://c30k33uo3e50" path="res://Textures/tempTexture/bread.png" id="5_h2clf"]
+[ext_resource type="Texture2D" uid="uid://c1lvpfpkleowd" path="res://Textures/pixelFoods/0.png" id="6_b6ebu"]
+[ext_resource type="Texture2D" uid="uid://ewptk6qp64xr" path="res://Textures/pixelFoods/1.png" id="7_v4i6i"]
+[ext_resource type="Texture2D" uid="uid://xk4o71rhn0ud" path="res://Textures/pixelFoods/2.png" id="8_1hi8c"]
+[ext_resource type="Texture2D" uid="uid://bqf60vflf30h4" path="res://Textures/pixelFoods/6.png" id="9_lmyum"]
 
 [node name="temp" type="Node2D"]
 
@@ -46,6 +50,26 @@ region_rect = Rect2(0, 0, 24, 24)
 
 [node name="CheeseGouda" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(434.375, 423.375)
+position = Vector2(3345, -1084)
 scale = Vector2(6.95313, 6.95313)
 texture = ExtResource("5_h2clf")
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(-435, 532)
+scale = Vector2(16.125, 16.125)
+texture = ExtResource("6_b6ebu")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(-840, 530)
+scale = Vector2(23.4375, 23.4375)
+texture = ExtResource("7_v4i6i")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(-1142, 148)
+scale = Vector2(26.6875, 26.6875)
+texture = ExtResource("8_1hi8c")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(-608, 112)
+scale = Vector2(24.375, 24.375)
+texture = ExtResource("9_lmyum")
