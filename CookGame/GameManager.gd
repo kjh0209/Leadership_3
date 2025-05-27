@@ -7,8 +7,6 @@ var nameList = []
 var inventory = []
 var gold = 0
 
-
-
 func _ready():
 	var file = FileAccess.open("res://data.json", FileAccess.READ)
 	var json_string = file.get_as_text()
@@ -64,7 +62,6 @@ func itemGet(item, num):
 		item = getNum(item)
 	inventory[item]+=num
 	emit_signal("inventoryUpdate")
-	print(inventory)
 	
 	
 	

@@ -1,21 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://bh4t8i1q02ydl"]
+[gd_scene load_steps=18 format=3 uid="uid://bh4t8i1q02ydl"]
 
 [ext_resource type="Texture2D" uid="uid://c5i6pn3ub4def" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="Theme" uid="uid://bqsey8ovq1oe8" path="res://Textures/Theme/Button.tres" id="2_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://ux7y7tsixvyt" path="res://Textures/Theme/BG3.png" id="2_ir8iy"]
 [ext_resource type="Script" uid="uid://d2mm50bexr40m" path="res://cook.gd" id="2_kdubu"]
 [ext_resource type="FontFile" uid="uid://di2gece0ap0xq" path="res://Fonts/neodgm.ttf" id="3_ir8iy"]
-[ext_resource type="Script" uid="uid://do2dblpuqjh6c" path="res://ingredient.gd" id="3_q6r6c"]
-[ext_resource type="Script" uid="uid://bgbjofnb3vrmy" path="res://inventory.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://do2dblpuqjh6c" path="res://ingredient_1.gd" id="3_q6r6c"]
+[ext_resource type="Script" uid="uid://bgbjofnb3vrmy" path="res://item_list.gd" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://bo3mq41g010uc" path="res://Textures/Theme/BG2.png" id="4_hqns4"]
 [ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://makjsqgru4nq" path="res://Textures/Theme/EmptyBG (2).png" id="7_ir8iy"]
-[ext_resource type="Script" uid="uid://ud6pvhkaiu1i" path="res://storeButton.gd" id="11_d2bti"]
+[ext_resource type="Script" uid="uid://bwrljnacv6amj" path="res://store.gd" id="11_d2bti"]
 [ext_resource type="Script" uid="uid://dia4ok4mwqcq6" path="res://gold.gd" id="11_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://b0qavg2xgbrae" path="res://Textures/coin.png" id="12_d2bti"]
 [ext_resource type="Theme" uid="uid://dsxjnh231ty3a" path="res://Textures/Theme/buybutton.tres" id="13_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://dwedy8vxtvej0" path="res://Textures/RecipeBook.png" id="14_flf07"]
-[ext_resource type="Script" uid="uid://dckdu1wi6fima" path="res://backButton.gd" id="16_ta5nu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0ka3"]
 texture = ExtResource("4_hqns4")
@@ -120,7 +119,12 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="inventory" type="ItemList" parent="CanvasLayer/UI1"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/UI1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.654514
@@ -135,7 +139,7 @@ fixed_icon_size = Vector2i(128, 170)
 script = ExtResource("4_0hol4")
 metadata/_edit_use_anchors_ = true
 
-[node name="storeButton" type="Button" parent="CanvasLayer/UI1"]
+[node name="store" type="Button" parent="CanvasLayer/UI1"]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 539.0
@@ -152,7 +156,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="storeUI" type="Control" parent="CanvasLayer"]
+[node name="UI3" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -161,7 +165,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="NinePatchRect" parent="CanvasLayer/storeUI"]
+[node name="background" type="NinePatchRect" parent="CanvasLayer/UI3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,7 +176,7 @@ theme = SubResource("Theme_k73cj")
 texture = ExtResource("4_hqns4")
 region_rect = Rect2(12, 12, 12, 12)
 
-[node name="goldbar" type="NinePatchRect" parent="CanvasLayer/storeUI/background"]
+[node name="goldbar" type="NinePatchRect" parent="CanvasLayer/UI3/background"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -188,7 +192,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="Gold" type="Label" parent="CanvasLayer/storeUI/background/goldbar"]
+[node name="Gold" type="Label" parent="CanvasLayer/UI3/background/goldbar"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 14.0
@@ -199,7 +203,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 30
 text = "Gold"
 
-[node name="viewGold" type="Label" parent="CanvasLayer/storeUI/background/goldbar"]
+[node name="viewGold" type="Label" parent="CanvasLayer/UI3/background/goldbar"]
 layout_mode = 0
 offset_left = 742.0
 offset_top = 14.0
@@ -211,7 +215,7 @@ theme_override_font_sizes/font_size = 30
 text = "Gold"
 script = ExtResource("11_nr8wp")
 
-[node name="coinImage" type="TextureRect" parent="CanvasLayer/storeUI/background/goldbar"]
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/background/goldbar"]
 layout_mode = 0
 offset_left = 692.0
 offset_top = 19.0
@@ -220,7 +224,7 @@ offset_bottom = 45.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="layout" type="NinePatchRect" parent="CanvasLayer/storeUI"]
+[node name="layout" type="NinePatchRect" parent="CanvasLayer/UI3"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 115.0
@@ -232,7 +236,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="todaysIngredient" type="NinePatchRect" parent="CanvasLayer/storeUI/layout"]
+[node name="todaysIngredient" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
 layout_mode = 0
 offset_left = 504.0
 offset_top = 25.0
@@ -244,7 +248,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="buytIButton" type="Button" parent="CanvasLayer/storeUI/layout/todaysIngredient"]
+[node name="buytIButton" type="Button" parent="CanvasLayer/UI3/layout/todaysIngredient"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -260,7 +264,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="tI_text" type="Label" parent="CanvasLayer/storeUI/layout/todaysIngredient"]
+[node name="tI_text" type="Label" parent="CanvasLayer/UI3/layout/todaysIngredient"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 24.0
@@ -273,7 +277,7 @@ theme_override_font_sizes/font_size = 30
 text = "Today's
 Ingredient"
 
-[node name="1000" type="Label" parent="CanvasLayer/storeUI/layout/todaysIngredient"]
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/todaysIngredient"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 302.0
@@ -284,7 +288,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "1000"
 
-[node name="coinImage" type="TextureRect" parent="CanvasLayer/storeUI/layout/todaysIngredient"]
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/todaysIngredient"]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 297.0
@@ -293,7 +297,7 @@ offset_bottom = 323.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="buyGold" type="NinePatchRect" parent="CanvasLayer/storeUI/layout"]
+[node name="buyGold" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 27.0
@@ -305,7 +309,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="buy1000GoldButton" type="Button" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="buy1000GoldButton" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -321,7 +325,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="buy3000GoldButton2" type="Button" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="buy3000GoldButton2" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -337,7 +341,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="buy5000GoldButton3" type="Button" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="buy5000GoldButton3" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -353,7 +357,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="buy10000GoldButton4" type="Button" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="buy10000GoldButton4" type="Button" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -369,7 +373,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="1000" type="Label" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 49.0
@@ -380,7 +384,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "1000"
 
-[node name="5Dollars" type="Label" parent="CanvasLayer/storeUI/layout/buyGold/1000"]
+[node name="5Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/1000"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 19.0
@@ -391,7 +395,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 16
 text = "$5"
 
-[node name="3000" type="Label" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="3000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 141.0
@@ -402,7 +406,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "3000"
 
-[node name="12Dollars" type="Label" parent="CanvasLayer/storeUI/layout/buyGold/3000"]
+[node name="12Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/3000"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 23.0
@@ -413,7 +417,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 16
 text = "$12"
 
-[node name="5000" type="Label" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="5000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 246.0
@@ -424,7 +428,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "5000"
 
-[node name="20Dollars" type="Label" parent="CanvasLayer/storeUI/layout/buyGold/5000"]
+[node name="20Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/5000"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 22.0
@@ -435,7 +439,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 16
 text = "$20"
 
-[node name="10000" type="Label" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="10000" type="Label" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 356.0
@@ -446,7 +450,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "10000"
 
-[node name="35Dollars" type="Label" parent="CanvasLayer/storeUI/layout/buyGold/10000"]
+[node name="35Dollars" type="Label" parent="CanvasLayer/UI3/layout/buyGold/10000"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 19.0
@@ -457,7 +461,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 16
 text = "$35"
 
-[node name="coinImage" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 44.0
@@ -466,7 +470,7 @@ offset_bottom = 70.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="coinImage2" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="coinImage2" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 138.0
@@ -475,7 +479,7 @@ offset_bottom = 164.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="coinImage3" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="coinImage3" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 350.0
@@ -484,7 +488,7 @@ offset_bottom = 376.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="coinImage4" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyGold"]
+[node name="coinImage4" type="TextureRect" parent="CanvasLayer/UI3/layout/buyGold"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 244.0
@@ -493,7 +497,7 @@ offset_bottom = 270.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="buyRecipebook" type="NinePatchRect" parent="CanvasLayer/storeUI/layout"]
+[node name="buyRecipebook" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
 layout_mode = 0
 offset_left = 750.0
 offset_top = 24.0
@@ -505,7 +509,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="bRb_text" type="Label" parent="CanvasLayer/storeUI/layout/buyRecipebook"]
+[node name="bRb_text" type="Label" parent="CanvasLayer/UI3/layout/buyRecipebook"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 25.0
@@ -518,7 +522,7 @@ theme_override_font_sizes/font_size = 30
 text = "Random
 RecipeBook"
 
-[node name="buyRandomRBButton" type="Button" parent="CanvasLayer/storeUI/layout/buyRecipebook"]
+[node name="buyRandomRBButton" type="Button" parent="CanvasLayer/UI3/layout/buyRecipebook"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -534,7 +538,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="RecipeBookImage" type="NinePatchRect" parent="CanvasLayer/storeUI/layout/buyRecipebook"]
+[node name="RecipeBookImage" type="NinePatchRect" parent="CanvasLayer/UI3/layout/buyRecipebook"]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 142.0
@@ -542,7 +546,7 @@ offset_right = 158.0
 offset_bottom = 262.0
 texture = ExtResource("14_flf07")
 
-[node name="1000" type="Label" parent="CanvasLayer/storeUI/layout/buyRecipebook"]
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyRecipebook"]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 302.0
@@ -553,7 +557,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "1000"
 
-[node name="coinImage" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyRecipebook"]
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyRecipebook"]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 297.0
@@ -562,7 +566,7 @@ offset_bottom = 323.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="buyCardpack" type="NinePatchRect" parent="CanvasLayer/storeUI/layout"]
+[node name="buyCardpack" type="NinePatchRect" parent="CanvasLayer/UI3/layout"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 24.0
@@ -574,7 +578,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="buyNormalCPButton" type="Button" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="buyNormalCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -590,7 +594,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="buyRareCPButton" type="Button" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="buyRareCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -606,7 +610,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="buySpecialCPButton" type="Button" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="buySpecialCPButton" type="Button" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -622,7 +626,7 @@ grow_vertical = 2
 theme = ExtResource("13_ta5nu")
 text = "Buy"
 
-[node name="CP_text" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="CP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 39.0
@@ -634,7 +638,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 30
 text = "Card Packs"
 
-[node name="500" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="500" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 77.0
 offset_top = 162.0
@@ -645,7 +649,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "500"
 
-[node name="coinImage" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="coinImage" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 157.0
@@ -654,7 +658,7 @@ offset_bottom = 183.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="1000" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="1000" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 263.0
@@ -665,7 +669,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "1000"
 
-[node name="coinImage2" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="coinImage2" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 258.0
@@ -674,7 +678,7 @@ offset_bottom = 284.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="2000" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="2000" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 366.0
@@ -685,7 +689,7 @@ theme_override_fonts/font = ExtResource("3_ir8iy")
 theme_override_font_sizes/font_size = 20
 text = "2000"
 
-[node name="coinImage3" type="TextureRect" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="coinImage3" type="TextureRect" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 361.0
@@ -694,7 +698,7 @@ offset_bottom = 387.0
 texture = ExtResource("12_d2bti")
 expand_mode = 1
 
-[node name="NCP_text" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="NCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = -6.0
 offset_top = 112.0
@@ -708,7 +712,7 @@ text = "Normal
 Card Packs"
 horizontal_alignment = 1
 
-[node name="RCP_text" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="RCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 211.0
@@ -722,7 +726,7 @@ text = "Rare
 Card Packs"
 horizontal_alignment = 1
 
-[node name="SCP_text" type="Label" parent="CanvasLayer/storeUI/layout/buyCardpack"]
+[node name="SCP_text" type="Label" parent="CanvasLayer/UI3/layout/buyCardpack"]
 layout_mode = 0
 offset_left = -6.0
 offset_top = 315.0
@@ -736,14 +740,4 @@ text = "Special
 Card Packs"
 horizontal_alignment = 1
 
-[node name="backButton" type="Button" parent="CanvasLayer/storeUI"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 539.0
-offset_right = 144.0
-offset_bottom = 612.0
-script = ExtResource("16_ta5nu")
-
 [connection signal="pressed" from="CanvasLayer/UI1/cookButton" to="CanvasLayer/UI1/cookButton" method="_cookButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI1/storeButton" to="CanvasLayer/UI1/storeButton" method="_on_store_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/storeUI/backButton" to="CanvasLayer/storeUI/backButton" method="_on_pressed"]

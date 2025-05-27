@@ -5,7 +5,6 @@ var gm = GameManager
 func _ready() -> void:
 	print('Button')
 
-
 func _cookButton_pressed() -> void:
 	#print(GameManager.my_dict)
 	var num1 = $"../Ingredient1".itemCode
@@ -29,9 +28,11 @@ func _cookButton_pressed() -> void:
 			gm.itemGet(result, 1)
 			gm.itemGet(num1, -1)
 			gm.itemGet(num2, -1)
-			
+			print(gm.inventory)
+			print("ingredient 1 : " + str(num1) + ", ingredient 2 : " + str(num2))
 			
 	else:
+		print('cook failed')
 		#cookfail
 		pass
 	
