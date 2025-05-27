@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bh4t8i1q02ydl"]
+[gd_scene load_steps=20 format=3 uid="uid://bh4t8i1q02ydl"]
 
 [ext_resource type="Texture2D" uid="uid://c5i6pn3ub4def" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="Theme" uid="uid://bqsey8ovq1oe8" path="res://Textures/Theme/Button.tres" id="2_4d7sh"]
@@ -11,8 +11,9 @@
 [ext_resource type="Theme" uid="uid://dnawi8f8f3u6t" path="res://Textures/Theme/ItemList.tres" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://makjsqgru4nq" path="res://Textures/Theme/EmptyBG (2).png" id="7_ir8iy"]
 [ext_resource type="Script" uid="uid://ud6pvhkaiu1i" path="res://storeButton.gd" id="11_d2bti"]
-[ext_resource type="Script" uid="uid://dia4ok4mwqcq6" path="res://gold.gd" id="11_nr8wp"]
+[ext_resource type="Script" uid="uid://dia4ok4mwqcq6" path="res://goldFunc.gd" id="11_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://b0qavg2xgbrae" path="res://Textures/coin.png" id="12_d2bti"]
+[ext_resource type="Script" uid="uid://v5d4u7eg7xgc" path="res://storeUI.gd" id="12_flf07"]
 [ext_resource type="Theme" uid="uid://dsxjnh231ty3a" path="res://Textures/Theme/buybutton.tres" id="13_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://dwedy8vxtvej0" path="res://Textures/RecipeBook.png" id="14_flf07"]
 [ext_resource type="Script" uid="uid://dckdu1wi6fima" path="res://backButton.gd" id="16_ta5nu"]
@@ -160,6 +161,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("12_flf07")
 
 [node name="background" type="NinePatchRect" parent="CanvasLayer/storeUI"]
 layout_mode = 1
@@ -746,4 +748,8 @@ script = ExtResource("16_ta5nu")
 
 [connection signal="pressed" from="CanvasLayer/UI1/cookButton" to="CanvasLayer/UI1/cookButton" method="_cookButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI1/storeButton" to="CanvasLayer/UI1/storeButton" method="_on_store_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/storeUI/layout/buyGold/buy1000GoldButton" to="CanvasLayer/storeUI" method="_on_buy_1000_gold_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/storeUI/layout/buyGold/buy3000GoldButton2" to="CanvasLayer/storeUI" method="_on_buy_3000_gold_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/storeUI/layout/buyGold/buy5000GoldButton3" to="CanvasLayer/storeUI" method="_on_buy_5000_gold_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/storeUI/layout/buyGold/buy10000GoldButton4" to="CanvasLayer/storeUI" method="_on_buy_10000_gold_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/storeUI/backButton" to="CanvasLayer/storeUI/backButton" method="_on_pressed"]
